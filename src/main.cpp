@@ -8,6 +8,7 @@
 #include <memory.h>
 #include <time.h>
 #include <fstream>
+#include <chrono>
 
 #include "bullet.h"
 #include "joint.h"
@@ -34,7 +35,9 @@ bool turnState;  // false = player1, true = player2
 int clockThen = clock();  // used to determine how long a second is
 int frameCount = 0;  // used to determine how many frames have been in the last second
 int frameRateTarget = 60;
-int frameRateTargetMs = (int) round(1000.0 / 60);
+float frameRateTargetMs = 1.0 * CLOCKS_PER_SEC / frameRateTarget;
+float frameRateCredit = 0;
+int frameRateClock = clock();
 int frameRateCalc = 0;
 Bullet bullet;
 Text text;
@@ -71,6 +74,7 @@ string floatToString(float f, int decPlace);
 void quit(int i = 0);
 
 int main(int argc, char **argv) {
+
 	// INITIALIZE THE GLUT WINDOW
 	memset(KeyDown,0,sizeof(KeyDown));
 	srand((unsigned)time(0));
@@ -350,8 +354,15 @@ void Idle() {
 void Timer(int t) {
 	// Update display
 	glutPostRedisplay();
+
 	// Reset timer
-	glutTimerFunc(frameRateTargetMs, Timer, 0);
+	int clockNew = clock();
+	frameRateCredit += (clockNew - frameRateClock) * 1000.0 / CLOCKS_PER_SEC;
+	frameRateCredit -= frameRateTargetMs;
+	frameRateClock = clockNew;
+	int delayMs = (int) round(frameRateTarget - frameRateCredit);
+	delayMs = min(int (10*frameRateTargetMs), max(0, delayMs));
+	glutTimerFunc(delayMs, Timer, 0);
 }
 
 // keyboard handler

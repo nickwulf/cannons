@@ -2,7 +2,6 @@
 #include "GL/glut.h"
 #include <stdlib.h>
 #include <stdarg.h>
-#include <cstdlib.>
 #include <sstream>
 #include <cmath>
 #include <memory.h>
@@ -253,25 +252,27 @@ void testCollisions() {
 
 void displayHUD() {
    string text;
+   int textTopY = imageHeight/2 - 60;
+   int textBotY = -imageHeight/2 + 60;
    int textLeftX = -imageWidth/2 + 50;
    text = "Player 1";
-   drawString(textLeftX, 270, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
+   drawString(textLeftX, textTopY, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Power: " + floatToString(cannons[0].getPower()*100, 1);
-   drawString(textLeftX, 245, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 25, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
    text = "Angle: " + floatToString(cannons[0].getAngle(), 1);
-   drawString(textLeftX, 225, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 40, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
    text = "Score: " + floatToString(cannons[0].getScore(), 1);
-   drawString(textLeftX, 200, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 65, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
 
    int textRightX = imageWidth/2 -130;
    text = "Player 2";
-   drawString(textRightX, 270, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
+   drawString(textRightX, textTopY, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Power: " + floatToString(cannons[1].getPower()*100, 1);
-   drawString(textRightX, 245, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 25, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
    text = "Angle: " + floatToString(180 - cannons[1].getAngle(), 1);
-   drawString(textRightX, 225, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 40, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
    text = "Score: " + floatToString(cannons[1].getScore(), 1);
-   drawString(textRightX, 200, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 65, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
    
    frameCount++;
    int clockNow = clock();
@@ -282,7 +283,7 @@ void displayHUD() {
       clockThen = clockNow;
    }
    text = "FPS: " + intToString(frameRateCalc);
-   drawString(textLeftX, -260, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textBotY, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
 
    if (specialMode) {
       text = "~PAUSE~";

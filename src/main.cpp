@@ -378,6 +378,14 @@ void Timer(int t) {
 // keyboard handler
 void Keyboard (unsigned char key, int , int ) {
    KeyDown[key]=1;
+   if (key == 'p') specialMode = !specialMode;
+   if (specialMode) {
+      specialTranslate = 150;
+      specialScale = 1;
+      specialRotate = 0;
+      cannons[2].setSpecialScale(1);
+      cannons[2].setSpecialRotate(0);
+   }
 }
 
 void KeyboardUp (unsigned char key, int , int ) {

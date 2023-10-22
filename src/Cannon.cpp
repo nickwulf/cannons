@@ -28,7 +28,7 @@ using namespace std;
 #define DEG_TO_RAD .0174532925
 
 Cannon::Cannon(float pXB, float pYB, float aA, float r, float g, float b) {
-    posXBase = pXB;
+   posXBase = pXB;
    posYBase = pYB;
    angleArm = aA;
    omega = 0;

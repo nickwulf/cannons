@@ -1,11 +1,11 @@
-#include ".\bullet.h"
-#include ".\joint.h"
-#include ".\rect.h"
-#include ".\cannon.h"
-#include ".\ground.h"
-#include ".\text.h"
+#include "bullet.h"
+#include "joint.h"
+#include "rect.h"
+#include "cannon.h"
+#include "ground.h"
+#include "text.h"
 
-#include "GL\glut.h"
+#include "GL/glut.h"
 #include <stdlib.h>
 #include <stdarg.h>
 

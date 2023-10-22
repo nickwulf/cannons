@@ -5,7 +5,7 @@
 #include "ground.h"
 #include "text.h"
 
-#include "GL\glut.h"
+#include "GL/glut.h"
 #include <stdlib.h>
 #include <stdarg.h>
 

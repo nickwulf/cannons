@@ -9,12 +9,12 @@
 #include <time.h>
 #include <fstream>
 
-#include "bullet.h"
-#include "joint.h"
-#include "rect.h"
-#include "cannon.h"
-#include "ground.h"
-#include "text.h"
+#include "Bullet.h"
+#include "Joint.h"
+#include "Rect.h"
+#include "Cannon.h"
+#include "Ground.h"
+#include "Text.h"
 
 using namespace std;
 

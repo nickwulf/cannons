@@ -40,7 +40,7 @@ void Text::update() {
       }
       glColor3f(.75*percent, percent, percent);
       glRasterPos2f(posX, newY);
-      void *font = GLUT_BITMAP_HELVETICA_12;
+      void *font = GLUT_BITMAP_HELVETICA_18;
       for (int i=0; i<(signed)text.length(); i++)
          glutBitmapCharacter(font, text[i]);
    }

@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
    glutInitWindowSize(imageWidth, imageHeight);
    glutInitDisplayString("rgb double");
    glutInitWindowPosition(0, 0);
-   glutCreateWindow("Cannon Game");
+   glutCreateWindow("Cannons");
 
    //SETUP MISC GL
    setupGL();
@@ -258,21 +258,21 @@ void displayHUD() {
    text = "Player 1";
    drawString(textLeftX, textTopY, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Power: " + floatToString(cannons[0].getPower()*100, 1);
-   drawString(textLeftX, textTopY - 25, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 30, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Angle: " + floatToString(cannons[0].getAngle(), 1);
-   drawString(textLeftX, textTopY - 40, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 50, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Score: " + floatToString(cannons[0].getScore(), 1);
-   drawString(textLeftX, textTopY - 65, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textTopY - 80, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
 
    int textRightX = imageWidth/2 -130;
    text = "Player 2";
    drawString(textRightX, textTopY, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Power: " + floatToString(cannons[1].getPower()*100, 1);
-   drawString(textRightX, textTopY - 25, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 30, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Angle: " + floatToString(180 - cannons[1].getAngle(), 1);
-   drawString(textRightX, textTopY - 40, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 50, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    text = "Score: " + floatToString(cannons[1].getScore(), 1);
-   drawString(textRightX, textTopY - 65, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textRightX, textTopY - 80, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
    
    frameCount++;
    int clockNow = clock();
@@ -283,7 +283,7 @@ void displayHUD() {
       clockThen = clockNow;
    }
    text = "FPS: " + intToString(frameRateCalc);
-   drawString(textLeftX, textBotY, GLUT_BITMAP_HELVETICA_12, text, 0, 0, 0);
+   drawString(textLeftX, textBotY, GLUT_BITMAP_HELVETICA_18, text, 0, 0, 0);
 
    if (specialMode) {
       text = "~PAUSE~";

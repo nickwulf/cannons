@@ -13,7 +13,7 @@ ________
 * A, D         ➜ Adjust the angle counter-clockwise/clockwise, respectively.
 * W, S         ➜ Increase/decrease the power, respectively.
 * Space        ➜ Fire.
-* P            ➜ Pause the game and see instructions
+* P            ➜ Pause the game and see instructions.
 
 Create The Executable
 -----------
